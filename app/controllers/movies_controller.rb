@@ -8,7 +8,6 @@ class MoviesController < ApplicationController
             end
         
             def show
-            
             end
         
             def new
@@ -26,8 +25,7 @@ class MoviesController < ApplicationController
                 end
             end
         
-            def edit 
-                
+            def edit     
             end
         
             def update
