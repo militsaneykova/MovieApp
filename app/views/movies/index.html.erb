@@ -1,5 +1,14 @@
 <% @movies.each do |movie|%>
 <h3><%= link_to movie.name, movie_path(movie)%></h3>
+<% movie.songs.each do |song|%>
+
+    <p><%= song.title%></p>
+
+    <%end%>
 <%end%>
 
 <%= link_to "Add new movie",new_movie_path %>
+
+<% @songs.each do |song|%>
+<h3><%= link_to song.title, song_path(song)%></h3>
+<%end%>
