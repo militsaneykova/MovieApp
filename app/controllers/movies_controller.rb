@@ -3,7 +3,8 @@ class MoviesController < ApplicationController
             before_action :one_movie, only: [:show, :edit, :update, :destroy]    
         
             def index
-                @movies = Movie.all    
+                @movies = Movie.all
+                @songs = Song.all    
             end
         
             def show
