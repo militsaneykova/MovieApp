@@ -1,8 +1,11 @@
-<%= form_for @song do |f| %>
-<%= f.label :title, label: "Movie Title: "%>
-<%= f.text_field :title %>
-<br>
-<%= f.label :singer, label: "Movie's director: "%>
-<%= f.text_field :singer %>
-<%= f.button %>
+<%= form_for @song, url: movie_songs_path(@movie) do |f| %>
+    <%= f.label :title%>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :singer%>
+    <%= f.text_field :singer %>
+    <br>
+    <h1><%= @movie.name %></h1>
+    <%= f.text_field :movie_id, :value => @movie.id %>
+    <%= f.submit %>
 <% end %>

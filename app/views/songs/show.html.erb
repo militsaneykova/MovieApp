@@ -1,7 +1,7 @@
     <h1><%= @song.title %></h2>
     <h2><%= @song.singer %></h2>
         
-    <%= link_to 'Edit song', edit_song_path(@song) %>
-    <%= button_to 'X',song_path(@song),method: :delete%>
-    <%= link_to 'All songs', songs_path(@song) %>
+    <%= link_to 'Edit song', edit_movie_song_path(@song) %>
+    <%= button_to 'X',movie_song_path(@song),method: :delete%>
+    <%= link_to 'All songs', movie_songs_path(@song) %>
         

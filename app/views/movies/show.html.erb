@@ -1,8 +1,14 @@
-<h1><%= @movie.name %></h2>
+    <h1><%= @movie.name %></h2>
     <h2><%= @movie.description %></h2>
     <h2><%= @movie.director %></h2>
     
     <%= link_to 'Edit a movie', edit_movie_path(@movie) %>
     <%= button_to 'X',movie_path(@movie),method: :delete%>
     <%= link_to 'All Movies', '/'%>
+
+        <% @songs.each do |song| %>
+            <p><%= song.title %></p>
+        <% end %>
+    
+    <%= link_to 'add a song', new_movie_song_path(@movie) %>
     

@@ -8,6 +8,8 @@ class MoviesController < ApplicationController
             end
         
             def show
+                @movie_id = Movie.find(params[:id]).id
+                @songs = Song.where(:movie_id => @movie_id)
             end
         
             def new
@@ -37,7 +39,7 @@ class MoviesController < ApplicationController
             end
         
             def destroy
-                if @movie.destroy
+                if @movie.destroy 
                     redirect_to '/'
                   else
                     render 'edit'

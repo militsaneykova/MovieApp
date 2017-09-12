@@ -1,22 +1,24 @@
 class SongsController < ApplicationController
     before_action :one_song, only: [:show, :edit, :update, :destroy]    
+    before_action :one_movie, only: [:show, :edit, :update, :destroy]    
     
-
     def index 
         @songs = Song.all
     end
     def show
     end
 
-    def new 
-        @song = Song.new
-        @movie = Movie.new 
+    def new
+        @movie = Movie.find(params[:movie_id]) 
+        @song = Song.new(movie: @movie)
+        
     end
 
     def create
         @song = Song.new(song_params)
+        @movie = Movie.find(params[:movie_id]) 
         if @song.save 
-            redirect_to @song
+            redirect_to movie_path(@movie)
         else
             render 'new'
         end
@@ -28,7 +30,7 @@ class SongsController < ApplicationController
 
     def update
         if @song.update(song_params)
-            redirect_to song_path(@song)
+            redirect_to movie_song_path(@song)
         else
             render 'edit'   
         end    
@@ -44,11 +46,14 @@ class SongsController < ApplicationController
 
     private 
         def song_params
-            params.require(:song).permit(:title, :singer)
+            params.require(:song).permit(:title, :singer, :movie_id)
         end    
 
         def one_song
             @song = Song.find(params[:id])
-        end        
+        end  
+        def one_movie
+            @movie = Movie.find(params[:id])
+        end      
 
 end
